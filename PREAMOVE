@@ -1,0 +1,61 @@
+CREATE TABLE `filmes` (
+	`id_filmes` int NOT NULL AUTO_INCREMENT,
+	`nome_filme` varchar(255) NOT NULL,
+	`DATA` DATE(255) NOT NULL,
+	PRIMARY KEY (`id_filmes`)
+);
+
+CREATE TABLE `series` (
+	`id_serie` int NOT NULL AUTO_INCREMENT,
+	`nome_serie` varchar(255) NOT NULL,
+	`DATA` DATE NOT NULL,
+	PRIMARY KEY (`id_serie`)
+);
+
+CREATE TABLE `preamove` (
+	`id_catalago_filme` int NOT NULL,
+	`id_catalago_serie` int NOT NULL,
+	`id_catalago_user` int NOT NULL
+);
+
+CREATE TABLE `usuarios` (
+	`id_user` int NOT NULL AUTO_INCREMENT,
+	`nome_user` varchar(255) NOT NULL,
+	`email_user` varchar(255) NOT NULL,
+	`senha_user` varchar(255) NOT NULL,
+	`apelido_user` varchar(255) NOT NULL,
+	`id_amigo1` int(255) NOT NULL,
+	`id_amigo2` int(255) NOT NULL,
+	`id_amigo3` int(255) NOT NULL,
+	`id_amigo4` int(255) NOT NULL,
+	`id_amigo5` int(255) NOT NULL,
+	PRIMARY KEY (`id_user`)
+);
+
+CREATE TABLE `amigos` (
+	`id_amigo` int NOT NULL AUTO_INCREMENT,
+	`nome_amigo` varchar(255) NOT NULL AUTO_INCREMENT,
+	`apelido_amigo` varchar(255) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`id_amigo`)
+);
+
+ALTER TABLE `filmes` ADD CONSTRAINT `filmes_fk0` FOREIGN KEY (`id_filmes`) REFERENCES `preamove`(`id_catalago_filme`);
+
+ALTER TABLE `series` ADD CONSTRAINT `series_fk0` FOREIGN KEY (`id_serie`) REFERENCES `preamove`(`id_catalago_serie`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk0` FOREIGN KEY (`id_user`) REFERENCES `preamove`(`id_catalago_user`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk1` FOREIGN KEY (`id_amigo1`) REFERENCES `amigos`(`id_amigo`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk2` FOREIGN KEY (`id_amigo2`) REFERENCES `amigos`(`id_amigo`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk3` FOREIGN KEY (`id_amigo3`) REFERENCES `amigos`(`id_amigo`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk4` FOREIGN KEY (`id_amigo4`) REFERENCES `amigos`(`id_amigo`);
+
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk5` FOREIGN KEY (`id_amigo5`) REFERENCES `amigos`(`id_amigo`);
+
+
+
+
+
