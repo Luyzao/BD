@@ -41,25 +41,21 @@ CREATE TABLE `amigos` (
 	PRIMARY KEY (`id_amigo`)
 );
 
-ALTER TABLE `filmes` ADD CONSTRAINT `filmes_fk0` FOREIGN KEY (`id_filmes`) REFERENCES `preamove`(`id_catalago_filme`);
-
-ALTER TABLE `series` ADD CONSTRAINT `series_fk0` FOREIGN KEY (`id_serie`) REFERENCES `preamove`(`id_catalago_serie`);
-
 ALTER TABLE `preamove` ADD CONSTRAINT `preamove_fk0` FOREIGN KEY (`id_catalago_filme`) REFERENCES `filmes`(`id_filmes`);
 
 ALTER TABLE `preamove` ADD CONSTRAINT `preamove_fk1` FOREIGN KEY (`id_catalago_serie`) REFERENCES `series`(`id_serie`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk0` FOREIGN KEY (`id_user`) REFERENCES `preamove`(`id_catalago_user`);
+ALTER TABLE `preamove` ADD CONSTRAINT `preamove_fk2` FOREIGN KEY (`id_catalago_user`) REFERENCES `usuarios`(`id_user`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk1` FOREIGN KEY (`id_amigo1`) REFERENCES `amigos`(`id_amigo`);
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk0` FOREIGN KEY (`id_amigo1`) REFERENCES `amigos`(`id_amigo`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk2` FOREIGN KEY (`id_amigo2`) REFERENCES `amigos`(`id_amigo`);
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk1` FOREIGN KEY (`id_amigo2`) REFERENCES `amigos`(`id_amigo`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk3` FOREIGN KEY (`id_amigo3`) REFERENCES `amigos`(`id_amigo`);
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk2` FOREIGN KEY (`id_amigo3`) REFERENCES `amigos`(`id_amigo`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk4` FOREIGN KEY (`id_amigo4`) REFERENCES `amigos`(`id_amigo`);
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk3` FOREIGN KEY (`id_amigo4`) REFERENCES `amigos`(`id_amigo`);
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk5` FOREIGN KEY (`id_amigo5`) REFERENCES `amigos`(`id_amigo`);
+ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk4` FOREIGN KEY (`id_amigo5`) REFERENCES `amigos`(`id_amigo`);
 
 
 
