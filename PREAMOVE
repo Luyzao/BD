@@ -1,7 +1,7 @@
 CREATE TABLE `filmes` (
 	`id_filmes` int NOT NULL AUTO_INCREMENT,
 	`nome_filme` varchar(255) NOT NULL,
-	`DATA` DATE(255) NOT NULL,
+	`DATA` DATE NOT NULL,
 	PRIMARY KEY (`id_filmes`)
 );
 
@@ -34,8 +34,8 @@ CREATE TABLE `usuarios` (
 
 CREATE TABLE `amigos` (
 	`id_amigo` int NOT NULL AUTO_INCREMENT,
-	`nome_amigo` varchar(255) NOT NULL AUTO_INCREMENT,
-	`apelido_amigo` varchar(255) NOT NULL AUTO_INCREMENT,
+	`nome_amigo` varchar(255) NOT NULL,
+	`apelido_amigo` varchar(255) NOT NULL,
 	PRIMARY KEY (`id_amigo`)
 );
 
