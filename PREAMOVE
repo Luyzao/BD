@@ -15,7 +15,9 @@ CREATE TABLE `series` (
 CREATE TABLE `preamove` (
 	`id_catalago_filme` int NOT NULL,
 	`id_catalago_serie` int NOT NULL,
-	`id_catalago_user` int NOT NULL
+	`id_catalago_user` int NOT NULL,
+	`id_prea` int NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`id_prea`)
 );
 
 CREATE TABLE `usuarios` (
@@ -42,6 +44,10 @@ CREATE TABLE `amigos` (
 ALTER TABLE `filmes` ADD CONSTRAINT `filmes_fk0` FOREIGN KEY (`id_filmes`) REFERENCES `preamove`(`id_catalago_filme`);
 
 ALTER TABLE `series` ADD CONSTRAINT `series_fk0` FOREIGN KEY (`id_serie`) REFERENCES `preamove`(`id_catalago_serie`);
+
+ALTER TABLE `preamove` ADD CONSTRAINT `preamove_fk0` FOREIGN KEY (`id_catalago_filme`) REFERENCES `filmes`(`id_filmes`);
+
+ALTER TABLE `preamove` ADD CONSTRAINT `preamove_fk1` FOREIGN KEY (`id_catalago_serie`) REFERENCES `series`(`id_serie`);
 
 ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_fk0` FOREIGN KEY (`id_user`) REFERENCES `preamove`(`id_catalago_user`);
 
